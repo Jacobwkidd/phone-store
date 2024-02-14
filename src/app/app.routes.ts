@@ -6,7 +6,7 @@ import { PhoneListComponent } from './components/phone-list/phone-list.component
 export const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'phone/all', component: PhoneListComponent},
+    // {path: 'phone/:phoneId', component: PhoneComponent},
     
-
     {path: '**', component: PageNotFoundComponent}
 ];

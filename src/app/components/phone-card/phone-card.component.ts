@@ -1,6 +1,8 @@
 import { NgIf } from '@angular/common';
-import { Component, inject, input } from '@angular/core';
+import { Component, Input, inject, input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Phone } from '../../models/phone';
+import { PhoneDbService } from '../../services/phone.service';
 
 @Component({
   selector: 'app-phone-card',
@@ -11,13 +13,13 @@ import { Router } from '@angular/router';
 })
 export class PhoneCardComponent {
   private router = inject(Router);
-  private phoneService = inject(PhoneService);
+  private phoneService = inject(PhoneDbService);
 
-  @Input() phones: Phone | null = null;
+  @Input() phone: Phone | null = null;
 
   public select(phone: Phone){
     this.phoneService.select(phone);
 
-    this.router.navigate(['/phones' + phone.id]);
+    this.router.navigate(['/phone/' + phone.id]);
   }
 }
