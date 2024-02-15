@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { PHONES } from '../mock-db/phones';
 import { PhoneDb } from '../models/phone-db';
 import { Phone } from '../models/phone';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
