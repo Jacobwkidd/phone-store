@@ -13,7 +13,7 @@ import { PhoneDb } from '../../models/phone-db';
   standalone: true,
   imports: [NgFor, PhoneCardComponent, AsyncPipe],
   templateUrl: './phone-list.component.html',
-  styleUrl: './phone-list.component.css'
+  styleUrl: './phone-list.component.css' 
 })
 export class PhoneListComponent {
   private phoneService: PhoneDbService = inject(PhoneDbService);
