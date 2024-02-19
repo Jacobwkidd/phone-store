@@ -1,6 +1,6 @@
 import { NgIf } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import { PhoneDbService } from '../../services/phone.service';
+import { PhoneService } from '../../services/phone.service';
 import { ActivatedRoute } from '@angular/router';
 import { Phone } from '../../models/phone';
 import { switchMap } from 'rxjs';
@@ -13,12 +13,24 @@ import { switchMap } from 'rxjs';
   styleUrl: './phone.component.css'
 })
 export class PhoneComponent implements OnInit{
-  private phoneService = inject(PhoneDbService);
+  private phoneService = inject(PhoneService);
   private route = inject(ActivatedRoute);
   public phone: Phone | null = null;
   
   ngOnInit(): void {
     this.getPhone();
+  }
+
+  public isEditing(){
+    //modify
+    
+  }
+
+  public saveChanges(){
+
+  }
+  public cancel(){
+    
   }
 
   public getPhone(): void{

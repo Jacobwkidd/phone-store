@@ -2,7 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component, Input, inject, input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Phone } from '../../models/phone';
-import { PhoneDbService } from '../../services/phone.service';
+import { PhoneService } from '../../services/phone.service';
 
 @Component({
   selector: 'app-phone-card',
@@ -13,7 +13,7 @@ import { PhoneDbService } from '../../services/phone.service';
 })
 export class PhoneCardComponent {
   private router = inject(Router);
-  private phoneService = inject(PhoneDbService);
+  private phoneService = inject(PhoneService);
 
   @Input() phone: Phone | null = null;
 
