@@ -8,27 +8,27 @@
             Edit
         </button>
     </div>
+    <div *ngIf="isEditing()">
+        <div>
+            <label for="Id" {{phone.id}}>Id: </label>
+        </div>
+        <div>
+            <label for="brand">Brand:</label>
+            <input type="text" id="brand" [(ngModel)]="phone?.brand">
+        </div>
+        <div>
+            <label for="model">Model</label>
+            <input type="text" id="model" {{phone.model}}>
+        </div>
+        <div>
+            <label for="year">Year:</label>
+            <input type="text" id="year" {{phone.year}}>
+        </div>
+        <div>
+            <label for="operatingSystem">Operating System</label>
+            <input type="text" id="operatingSystem" {{phone.operatingSystem}}>
+        </div>
+        <button (click)="updatePhone(phone)">Save</button>
+        <button (click)="cancel()">Cancel</button>
+    </div>
 </ng-container>
-<ng-template>
-    <div>
-        <label for="Id" {{phone.id}}>Id: </label>
-    </div>
-    <div>
-        <label for="brand">Brand:</label>
-        <input type="text" id="brand" {{phone.brand}}>
-    </div>
-    <div>
-        <label for="model">Model</label>
-        <input type="text" id="model" {{phone.model}}>
-    </div>
-    <div>
-        <label for="year">Year:</label>
-        <input type="text" id="year" {{phone.year}}>
-    </div>
-    <div>
-        <label for="operatingSystem">Operating System</label>
-        <input type="text" id="operatingSystem" {{phone.operatingSystem}}>
-    </div>
-    <button (click)="saveChanges()">Save</button>
-    <button (click)="cancel()">Cancel</button>
-</ng-template>

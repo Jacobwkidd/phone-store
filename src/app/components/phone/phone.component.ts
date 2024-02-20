@@ -4,6 +4,7 @@ import { PhoneService } from '../../services/phone.service';
 import { ActivatedRoute } from '@angular/router';
 import { Phone } from '../../models/phone';
 import { switchMap } from 'rxjs';
+import { PhoneDbService } from '../../services/phone-db.service';
 
 @Component({
   selector: 'app-phone',
@@ -14,6 +15,7 @@ import { switchMap } from 'rxjs';
 })
 export class PhoneComponent implements OnInit{
   private phoneService = inject(PhoneService);
+  private phoneDbService = inject(PhoneDbService);
   private route = inject(ActivatedRoute);
   public phone: Phone | null = null;
   
@@ -26,11 +28,11 @@ export class PhoneComponent implements OnInit{
     
   }
 
-  public saveChanges(){
-
+  public saveChanges(phone: any){
+    this.phone = this.phoneDbService.updatePhone(phone);
   }
   public cancel(){
-    
+    this.cancel
   }
 
   public getPhone(): void{
