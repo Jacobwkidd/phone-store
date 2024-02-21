@@ -1,0 +1,24 @@
+<div *ngIf="phone">
+    <div>
+        <label for="Id" >Id: {{phone.id}}</label>
+    </div>
+    <div>
+        <label for="brand">Brand:</label>
+        <input type="text" id="brand" [(ngModel)]="phone?.brand" placeholder="{{phone?.brand}}">
+    </div>
+    <div>
+        <label for="model">Model</label>
+        <input type="text" id="model" [(ngModel)]="phone?.model"
+        placeholder="{{phone?.model}}">
+    </div>
+    <div>
+        <label for="year">Year:</label>
+        <input type="text" id="year" placeholder="{{phone?.releaseYear}}" [(ngModel)]="phone?.releaseYear">
+    </div>
+    <div>
+        <label for="operatingSystem">Operating System</label>
+        <input type="text" id="operatingSystem" placeholder="{{phone?.operatingSystem}}" [(ngModel)]="phone?.operatingSystem">
+    </div>
+    <button (click)="saveChanges(phone)">Save</button>
+    <button (click)="cancel(phone)">Cancel</button>
+</div>

@@ -4,31 +4,8 @@
         <h2 class="text-3xl"><span class="font-bold">Year:</span> {{ phone.releaseYear }}</h2>
         <h2 class="text-2xl"><span class="font-bold">ID:</span> {{ phone.id }}</h2>
         <h3 class="text-xl"><span class="font-bold">Operating System:</span> {{ phone.operatingSystem }}</h3>
-        <button lass=" btn btn-primary mt-4" (click)="isEditing()">
+        <button lass=" btn btn-primary mt-4" (click)="isEditing(phone)">
             Edit
         </button>
-    </div>
-    <div *ngIf="isEditing()">
-        <div>
-            <label for="Id" {{phone.id}}>Id: </label>
-        </div>
-        <div>
-            <label for="brand">Brand:</label>
-            <input type="text" id="brand" [(ngModel)]="phone?.brand">
-        </div>
-        <div>
-            <label for="model">Model</label>
-            <input type="text" id="model" {{phone.model}}>
-        </div>
-        <div>
-            <label for="year">Year:</label>
-            <input type="text" id="year" {{phone.year}}>
-        </div>
-        <div>
-            <label for="operatingSystem">Operating System</label>
-            <input type="text" id="operatingSystem" {{phone.operatingSystem}}>
-        </div>
-        <button (click)="updatePhone(phone)">Save</button>
-        <button (click)="cancel()">Cancel</button>
     </div>
 </ng-container>

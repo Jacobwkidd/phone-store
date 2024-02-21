@@ -1,39 +1,36 @@
 import { NgIf } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject, input } from '@angular/core';
 import { PhoneService } from '../../services/phone.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Phone } from '../../models/phone';
 import { switchMap } from 'rxjs';
 import { PhoneDbService } from '../../services/phone-db.service';
+import { FormsModule, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-phone',
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf, FormsModule],
   templateUrl: './phone.component.html',
   styleUrl: './phone.component.css'
 })
 export class PhoneComponent implements OnInit{
   private phoneService = inject(PhoneService);
   private phoneDbService = inject(PhoneDbService);
+  private navigate = inject(Router);
   private route = inject(ActivatedRoute);
-  public phone: Phone | null = null;
+  @Input() phone: Phone | null = null;
   
   ngOnInit(): void {
-    this.getPhone();
+    this.phone = this.phoneService.getCurPhone();
   }
 
-  public isEditing(){
+  public isEditing(phone : Phone){
     //modify
-    
+    this.phoneService.select(phone);
+    this.navigate.navigate(['/phone/edit/' + phone.id]);
   }
 
-  public saveChanges(phone: any){
-    this.phone = this.phoneDbService.updatePhone(phone);
-  }
-  public cancel(){
-    this.cancel
-  }
 
   public getPhone(): void{
     if(!this.phone){
