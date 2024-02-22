@@ -1,24 +1,25 @@
-<div *ngIf="phone">
+<div *ngIf="phone" class="bg-white p-8 rounded shadow-md w-1/4 min-h-screen flex justify-center">
     <div>
-        <label for="Id" >Id: {{phone.id}}</label>
+        <div>
+            <label for="Id" >Id: {{phone.id}}</label>
+        </div>
+        <div>
+            <label for="brand" class="block text-gray-700 text-sm font-bold mb-2">Brand:</label>
+            <input type="text" id="brand"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="phone.brand" placeholder="{{phone.brand}}">
+        </div>
+        <div>
+            <label for="model" class="block text-gray-700 text-sm font-bold mb-2">Model</label>
+            <input type="text" id="model" [(ngModel)]="phone.model"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="{{phone.model}}">
+        </div>
+        <div>
+            <label for="year" class="block text-gray-700 text-sm font-bold mb-2">Year:</label>
+            <input type="text" id="year" placeholder="{{phone.releaseYear}}"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="phone.releaseYear">
+        </div>
+        <div>
+            <label for="operatingSystem" class="block text-gray-700 text-sm font-bold mb-2">Operating System</label>
+            <input type="text" id="operatingSystem"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  placeholder="{{phone.operatingSystem}} " [(ngModel)]="phone.operatingSystem">
+        </div>
+        <button (click)="saveChanges(phone)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save</button>
+        <button (click)="cancel(phone)"   class="flex-shrink-0 border-transparent border-4 text-teal-500 hover:text-teal-800 text-sm py-1 px-2 rounded">Cancel</button>
     </div>
-    <div>
-        <label for="brand">Brand:</label>
-        <input type="text" id="brand" [(ngModel)]="phone?.brand" placeholder="{{phone?.brand}}">
-    </div>
-    <div>
-        <label for="model">Model</label>
-        <input type="text" id="model" [(ngModel)]="phone?.model"
-        placeholder="{{phone?.model}}">
-    </div>
-    <div>
-        <label for="year">Year:</label>
-        <input type="text" id="year" placeholder="{{phone?.releaseYear}}" [(ngModel)]="phone?.releaseYear">
-    </div>
-    <div>
-        <label for="operatingSystem">Operating System</label>
-        <input type="text" id="operatingSystem" placeholder="{{phone?.operatingSystem}}" [(ngModel)]="phone?.operatingSystem">
-    </div>
-    <button (click)="saveChanges(phone)">Save</button>
-    <button (click)="cancel(phone)">Cancel</button>
 </div>

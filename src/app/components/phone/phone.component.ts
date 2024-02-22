@@ -27,6 +27,7 @@ export class PhoneComponent implements OnInit{
 
   public isEditing(phone : Phone){
     //modify
+    console.log(phone);
     this.phoneService.select(phone);
     this.navigate.navigate(['/phone/edit/' + phone.id]);
   }

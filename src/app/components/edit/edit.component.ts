@@ -30,8 +30,6 @@ export class EditComponent {
 
   }
 
-
-
   public saveChanges(phone: Phone){
     this.phoneDbService.updatePhone(phone);
     this.phoneDbService.saveDb();
